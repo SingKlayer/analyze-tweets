@@ -1,102 +1,75 @@
-# Project Title
+# Twitter sentiment analyzer
 
-One Paragraph of the project description
+## Sentiment Analysis Tool with Tweepy and TextBlob
 
-Initially appeared on
-[gist](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2). But the page cannot open anymore so that is why I have moved it here.
+This Python script analyzes the sentiment of tweets and generates a sentiment plot. It utilizes the Tweepy library to access Twitter data and TextBlob for sentiment analysis.
+
+**Note:** The original source on gist.github.com is no longer available. This README serves as a replacement.
 
 ## Getting Started
 
-These instructions will give you a copy of the project up and running on
-your local machine for development and testing purposes. See deployment
-for notes on deploying the project on a live system.
+This guide will help you set up and run the project locally for development and testing.
 
 ### Prerequisites
 
-Requirements for the software and other tools to build, test and push 
-- [Example 1](https://www.example.com)
-- [Example 2](https://www.example.com)
+Before proceeding, ensure you have the following software installed:
 
-### Installing
+* Python 3.x ([https://www.python.org/downloads/](https://www.python.org/downloads/))
+* Tweepy library (`pip install tweepy`)
+* TextBlob library (`pip install textblob`)
+* Matplotlib library (`pip install matplotlib`)
 
-A step by step series of examples that tell you how to get a development
-environment running
+### Installation
 
-Say what the step will be
+1. **Clone the repository:**
 
-    Give the example
+   ```bash
+   git clone https://github.com/your-username/sentiment-analysis-tool.git
+   ```
 
-And repeat
+2. **Create a `keys.txt` file:**
 
-    until finished
+   - In the project directory, create a file named `keys.txt`.
+   - Paste your Twitter API credentials (obtained from [https://developer.twitter.com/en](https://developer.twitter.com/en)) into the file, each on a separate line:
 
-End with an example of getting some data out of the system or using it
-for a little demo
+     ```
+     <bearer_token>
+     <consumer_key>
+     <consumer_secret>
+     <access_token>
+     <access_token_secret>
+     ```
 
-## Running the tests
+### Running the Script
 
-Explain how to run the automated tests for this system
+1. **Navigate to the project directory:**
 
-### Sample Tests
+   ```bash
+   cd sentiment-analysis-tool
+   ```
 
-Explain what these tests test and why
+2. **Run the script:**
 
-    Give an example
+   ```bash
+   python sentiment_analysis.py
+   ```
 
-### Style test
+This will:
 
-Checks if the best practices and the right coding style has been used.
+* Analyze the sentiment of the provided sample tweets.
+* Generate a sentiment plot (`sentiment_plot.png`).
+* Upload the plot to Twitter and post a tweet with the analysis.
 
-    Give an example
+**Note:** Replace the sample tweets with your desired search query or method to obtain tweets for analysis.
 
-## Deployment
+## Additional Notes
 
-Add additional notes to deploy this on a live system
+* This script demonstrates a basic example of sentiment analysis using Tweepy and TextBlob.
+* For more advanced usage, refer to the respective library documentations.
+* Consider implementing error handling and user input for a more robust application.
 
-## Built With
+## Warning:
 
-  - [Contributor Covenant](https://www.contributor-covenant.org/) - Used
-    for the Code of Conduct
-  - [Creative Commons](https://creativecommons.org/) - Used to choose
-    the license
+* Due to the new Twitter API, some End-Points and Functions may not work as intended. Feel free to fork and adapt the code.
 
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code
-of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [Semantic Versioning](http://semver.org/) for versioning. For the versions
-available, see the [tags on this
-repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
-
-## Authors
-
-  - **Billie Thompson** - *Provided README Template* -
-    [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of
-[contributors](https://github.com/PurpleBooth/a-good-readme-template/contributors)
-who participated in this project.
-
-## License
-
-This project is licensed under the [CC0 1.0 Universal](LICENSE.md)
-Creative Commons License - see the [LICENSE.md](LICENSE.md) file for
-details
-
-## Acknowledgments
-
-  - Hat tip to anyone whose code is used
-  - Inspiration
-  - etc
-
-
-
-
-
-### Documentation
-- https://docs.tweepy.org/en/stable/getting_started.html
-- https://textblob.readthedocs.io/en/dev/quickstart.html
-- https://developer.twitter.com/
+## Leave a star to support <3
