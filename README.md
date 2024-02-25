@@ -24,7 +24,7 @@ Before proceeding, ensure you have the following software installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/sentiment-analysis-tool.git
+   git clone https://github.com/SingKlayer/analyze-tweets.git
    ```
 
 2. **Create a `keys.txt` file:**
