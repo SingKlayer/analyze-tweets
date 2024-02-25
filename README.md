@@ -66,7 +66,6 @@ This will:
 
 * This script demonstrates a basic example of sentiment analysis using Tweepy and TextBlob.
 * For more advanced usage, refer to the respective library documentations.
-* Consider implementing error handling and user input for a more robust application.
 
 ## Warning:
 
