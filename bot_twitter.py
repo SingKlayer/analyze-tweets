@@ -41,5 +41,7 @@ generate_plot(polarities, x_axis)
 
 media_id = client.media_upload(filename="sentiment_plot.png")
 
-tweet_text = "Análise de sentimento dos tweets: #python #nlp"
+average_polarity = sum(polarities) / len(polarities)
+
+tweet_text = f'Sentiment ratio: {average_polarity}'
 client.create_tweet(text=tweet_text, media_ids=[media_id])
