@@ -3,22 +3,25 @@ from textblob import TextBlob as tb
 import matplotlib.pyplot as plt
 import os
 
-tokens_path = os.path.join(os.path.dirname(__file__), "keys.txt")
-with open(tokens_path, "r") as f:
-    tokens = f.readlines()
+def authenticate():
+    tokens_path = os.path.join(os.path.dirname(__file__), "keys.txt")
+    with open(tokens_path, "r") as f:
+        tokens = f.readlines()
 
-bearer_token = tokens[0].strip()
-consumer_key = tokens[1].strip()
-consumer_secret = tokens[2].strip()
-access_token = tokens[3].strip()
-access_token_secret = tokens[4].strip()
+    bearer_token = tokens[0].strip()
+    consumer_key = tokens[1].strip()
+    consumer_secret = tokens[2].strip()
+    access_token = tokens[3].strip()
+    access_token_secret = tokens[4].strip()
 
-client = tweepy.Client(
-    consumer_key=consumer_key,
-    consumer_secret=consumer_secret,
-    access_token=access_token,
-    access_token_secret=access_token_secret,
-)
+    auth = tweepy.OAuth1Session(
+        consumer_key,
+        consumer_secret,
+        access_token,
+        access_token_secret
+    )
+
+    return tweepy.Client(auth)
 
 def analyze_sentiment(text):
     analysis = tb(text)
@@ -31,17 +34,24 @@ def generate_plot(polarities, x_axis):
     plt.ylabel("Polarity")
     plt.savefig("sentiment_plot.png")
 
-# Replace with your way to obtain tweets
-tweets = ["This is a positive tweet.", "This is a negative tweet."]
+def main():
+    try:
+        client = authenticate()
 
-polarities = [analyze_sentiment(tweet) for tweet in tweets]
-x_axis = range(len(tweets))
+        # Replace with your way to obtain tweets
+        tweets = ["This is a positive tweet.", "This is a negative tweet."]
 
-generate_plot(polarities, x_axis)
+        polarities = [analyze_sentiment(tweet) for tweet in tweets]
+        x_axis = range(len(tweets))
 
-media_id = client.media_upload(filename="sentiment_plot.png")
+        generate_plot(polarities, x_axis)
 
-average_polarity = sum(polarities) / len(polarities)
+        media_id = client.media_upload(filename="sentiment_plot.png")
 
-tweet_text = f'Sentiment ratio: {average_polarity}'
-client.create_tweet(text=tweet_text, media_ids=[media_id])
+        tweet_text = "Análise de sentimento dos tweets: #python #nlp"
+        client.create_tweet(text=tweet_text, media_ids=[media_id])
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    main()
