@@ -51,7 +51,7 @@ Before proceeding, ensure you have the following software installed:
 2. **Run the script:**
 
    ```bash
-   python sentiment_analysis.py
+   python bot_twitter.py
    ```
 
 This will:
